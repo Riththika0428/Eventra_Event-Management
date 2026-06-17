@@ -7,6 +7,7 @@ import { errorHandler, notFound } from './src/middleware/errorMiddleware.js';
 import authRoutes from './src/routes/authRoutes.js';
 import eventRoutes from './src/routes/eventRoutes.js';
 import userRoutes from './src/routes/userRoutes.js';
+import organizerRoutes from './src/routes/organizerRoutes.js';
 
 connectDB();
 
@@ -27,6 +28,7 @@ app.get('/api/health', (_, res) =>
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/organizer', organizerRoutes);
 
 // ── Error Handlers (must be last) ────────────────────────────────────────────
 app.use(notFound);

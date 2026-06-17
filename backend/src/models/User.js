@@ -27,10 +27,20 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       enum: {
-        values: ['attendee', 'organizer'],
-        message: 'Role must be attendee or organizer',
+        values: ['attendee', 'organizer', 'admin'],
+        message: 'Role must be attendee, organizer, or admin',
       },
       default: 'attendee',
+    },
+    organizationName: { type: String, trim: true },
+    logo: { type: String, default: '' },
+    bio: { type: String, maxlength: 500 },
+    website: { type: String },
+    phone: { type: String },
+    socialLinks: {
+      twitter: String,
+      linkedin: String,
+      facebook: String
     },
   },
   { timestamps: true }
